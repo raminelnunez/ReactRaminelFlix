@@ -1,9 +1,9 @@
 const TitleList = () => {
   return (
-    <div class="titleList">
-        <div class="title">
+    <div className="titleList">
+        <div className="title">
           <h1>Netflix</h1>
-          <div class="titles-wrapper">
+          <div className="titles-wrapper">
             
           </div>
         </div>

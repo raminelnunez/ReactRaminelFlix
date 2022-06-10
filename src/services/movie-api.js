@@ -6,6 +6,7 @@ const searchMovies = async (query) => {
   const request = await fetch(`${searchURL}&query=${query}`);
   const response = await request.json();
   const movies = await response.results;
+
   return movies;
 };
 

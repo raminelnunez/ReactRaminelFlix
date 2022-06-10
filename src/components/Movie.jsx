@@ -1,12 +1,12 @@
 const Movie = () => {
   return (
-    <div class="movie">
+    <div className="movie">
     <a href="/details/60735"
       ><img src="https://image.tmdb.org/t/p/w500/lJA2RCMfsWoskqlQhXPSLFQGXEJ.jpg" alt="Movie poster" />
-      <div class="overlay">
-        <div class="title">The Flash</div>
-        <div class="rating">7.7/10</div>
-        <div class="plot">
+      <div className="overlay">
+        <div className="title">The Flash</div>
+        <div className="rating">7.7/10</div>
+        <div className="plot">
           After a particle accelerator causes a freak storm, CSI Investigator Barry Allen is struck by lightning and falls into a coma. Months later
           he awakens with the power of super speed, granting him the ability to move through Central City like an unseen guardian angel. Though
           initially excited by his newfound powers, Barry is shocked to discover he is not the only "meta-human" who was created in the wake of the
@@ -16,8 +16,8 @@ const Movie = () => {
         </div>
       </div></a
     >
-    <div data-toggled="false" class="listToggle">
-      <div><i class="fa fa-fw fa-plus"></i><i class="fa fa-fw fa-check"></i></div>
+    <div data-toggled="false" className="listToggle">
+      <div><i className="fa fa-fw fa-plus"></i><i className="fa fa-fw fa-check"></i></div>
     </div>
   </div>
   );
