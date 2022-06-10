@@ -1,12 +1,14 @@
-import './App.css';
-import { useState } from 'react';
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import "./App.css";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function App() {
   return (
-   <>
-   <h1>react final project</h1>
-   </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<BookShelfPage />} />
+        <Route path="/search" element={<SearchPage />} />
+      </Routes>
+    </Router>
   );
 }
 
