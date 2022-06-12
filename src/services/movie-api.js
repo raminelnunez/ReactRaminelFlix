@@ -17,6 +17,7 @@ const TopMoviesByProviderURL = (providerName) => {
       break;
     case "Apple Plus" || "apple plus":
       providerId = 350;
+      break;
   }
   return `${baseURL}discover/tv?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&with_watch_providers=${providerId}&watch_region=CA`;
 }
@@ -38,6 +39,6 @@ export const getMovieById = async (id) => {
 export const getTopMoviesByProvider = async (providerName) => {
   const request = await fetch(TopMoviesByProviderURL(providerName));
   const response = await request.json();
-  const movies = await response;
-  return movies;
+  const data = await response;
+  return data.results;
 }
