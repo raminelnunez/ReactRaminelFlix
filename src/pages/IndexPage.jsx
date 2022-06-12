@@ -16,11 +16,11 @@ const IndexPage = ({SearchFormProps}) => {
       getTopMoviesByProvider("Crave"),
       getTopMoviesByProvider("Disney"),  
       getTopMoviesByProvider("Apple Plus")
-    ]).then((data) => {
-      setNetflixMovies(data[0]);
-      setCraveMovies(data[1]);
-      setDisneyMovies(data[2]);
-      setApplePlusMovies(data[3]);
+    ]).then((results) => {
+      setNetflixMovies(results[0]);
+      setCraveMovies(results[1]);
+      setDisneyMovies(results[2]);
+      setApplePlusMovies(results[3]);
     })
   }
 

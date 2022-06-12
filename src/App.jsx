@@ -7,18 +7,14 @@ import SearchPage from "./pages/SearchPage";
 
 function App() {
   const [searchValue, setSearchValue] = useState("");
-  const [searchResults, setSearchResults] = useState(null);
-
   const navigate = useNavigate();
 
-  const handleSearchMovies = async () => {
-    const data = await searchMovies(searchValue);
-    setSearchResults(await data)
-    .then(navigate(`/search?=${searchValue}`))
+  const handleSearch = async () => {
+    navigate("/search")
   }
 
   const SearchFormProps = {
-    handleSearchMovies: handleSearchMovies,
+    handleSearch: handleSearch,
     setSearchValue: setSearchValue,
     searchValue: searchValue
   }
@@ -32,11 +28,10 @@ function App() {
                   />
                 } 
         />
-        <Route path={`/search?=${searchValue}`} 
+        <Route path={`/search`} 
                element={
                   <SearchPage 
                   SearchFormProps={SearchFormProps}
-                    searchResults={searchResults}
                   />
                 }
         />

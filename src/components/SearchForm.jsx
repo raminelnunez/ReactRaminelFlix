@@ -1,14 +1,15 @@
 import { useState } from "react";
 
 const SearchForm = ({props}) => {
-  const {handleSearchMovies, setSearchValue, searchValue} = props;
+  const {handleSearch, setSearchValue, searchValue} = props;
   const handleChange = (event) => {
     setSearchValue(event.target.value);
   }
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    handleSearchMovies(searchValue);
+    handleSearch(searchValue);
+    console.log("submit");
   }
   
   return (
