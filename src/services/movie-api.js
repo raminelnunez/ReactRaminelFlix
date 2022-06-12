@@ -32,8 +32,9 @@ export const searchMovies = async (query) => {
 export const getMovieById = async (id) => {
   const request = await fetch(movieURL(id));
   const response = await request.json();
-  const movie = await response;
-  return movie;
+  const data = await response;
+  console.log(data);
+  return data;
 }
 
 export const getTopMoviesByProvider = async (providerName) => {

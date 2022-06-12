@@ -1,6 +1,5 @@
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from "react-router-dom";
-import { searchMovies } from "./services/movie-api";
+import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import IndexPage from "./pages/IndexPage";
 import SearchPage from "./pages/SearchPage";
@@ -10,7 +9,11 @@ function App() {
   const navigate = useNavigate();
 
   const handleSearch = async () => {
-    navigate("/search")
+    navigate(`/search?query=${searchValue}`)
+  }
+
+  const handleDetails = async () => {
+    navigate("/details")
   }
 
   const SearchFormProps = {

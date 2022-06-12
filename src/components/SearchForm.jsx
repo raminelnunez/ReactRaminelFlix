@@ -9,7 +9,6 @@ const SearchForm = ({props}) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     handleSearch(searchValue);
-    console.log("submit");
   }
   
   return (

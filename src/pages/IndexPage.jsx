@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { getTopMoviesByProvider } from "../services/movie-api"
 import Header from "../components/Header";
 import MovieList from "../components/MovieList";
+import { useLocation } from "react-router-dom";
 
 const IndexPage = ({SearchFormProps}) => {
   const [netflixMovies, setNetflixMovies] = useState(null);

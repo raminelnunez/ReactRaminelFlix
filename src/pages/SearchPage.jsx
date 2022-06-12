@@ -4,31 +4,37 @@ import { useSearchParams } from "react-router-dom";
 import { searchMovies } from "../services/movie-api";
 import { useEffect, useState } from "react";
 
-
 const SearchPage = ({SearchFormProps}) => {
   const {searchValue} = SearchFormProps;
 
-  const [searchParams, setSearchParams] = useSearchParams();
   const [searchResults, setSearchResults] = useState(null);
+  const [searchParams, setSearchParams] = useSearchParams();
+
   const query = searchParams.get("query")
   
-  const handleSearchMovies = async () => {
+  const handleQuery = () => {
     if (!query) {
       setSearchParams({query: searchValue})
     }
+  }
+
+  const handleSearchMovies = async () => {
     const promise = new Promise((resolve, reject) => {
       resolve(searchMovies(query));
     });
     
     promise.then((results) => {
-      console.log(results)
       setSearchResults(results);
     });
   }
 
   useEffect(() => {
-    handleSearchMovies();
+    handleQuery();
   }, [])
+
+  useEffect(() => {
+    handleSearchMovies();
+  }, [query])
 
   return (
     <>
