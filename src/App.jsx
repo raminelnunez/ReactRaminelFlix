@@ -6,30 +6,19 @@ import SearchPage from "./pages/SearchPage";
 import DetailsPage from "./pages/DetailsPage";
 import WatchListPage from "./pages/WatchListPage";
 import SearchFormContextProvider from "./contexts/SearchFormContext";
-
+import MovieContextProvider from "./contexts/MovieContext";
 
 function App() {
-  const [likedMovieIds, setLikedMovieIds] = useState(null);
 
-
-  const handleToggleLikeMovie = (id) => {
-    setLikedMovieIds((prevState) => {
-      if (prevState.findIndex((movieId) => movieId === id) === -1) {
-        return [...prevState, id];
-      }
-
-      return prevState.filter((movieId) => movieId !== id);
-    });
-  };
-
+  
   return (
-
     <Routes>
-
       <Route path="/"
         element={
           <SearchFormContextProvider>
-            <IndexPage/>
+            <MovieContextProvider>
+              <IndexPage/>
+            </MovieContextProvider>
           </SearchFormContextProvider>
         }
       />
@@ -37,7 +26,9 @@ function App() {
       <Route path={`/search`}
         element={
           <SearchFormContextProvider>
-            <SearchPage/>
+            <MovieContextProvider>
+              <SearchPage/>
+            </MovieContextProvider>
           </SearchFormContextProvider>
         }
       />
@@ -45,7 +36,9 @@ function App() {
       <Route path={`/details/:MovieId`}
         element={
           <SearchFormContextProvider>
-            <DetailsPage/>
+            <MovieContextProvider>
+              <DetailsPage/>
+            </MovieContextProvider>
           </SearchFormContextProvider>
         }
       />
@@ -53,7 +46,9 @@ function App() {
       <Route path="my-watch-list"
         element={
           <SearchFormContextProvider>
-            <WatchListPage FavouritesIds={likedMovieIds}/>
+            <MovieContextProvider>
+              <WatchListPage/>
+            </MovieContextProvider>
           </SearchFormContextProvider>
         }
       />
