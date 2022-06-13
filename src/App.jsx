@@ -10,11 +10,7 @@ import SearchFormContextProvider from "./contexts/SearchFormContext";
 
 function App() {
   const [likedMovieIds, setLikedMovieIds] = useState(null);
-  const navigate = useNavigate();
 
-  const handleDetails = async (id) => {
-    navigate(`/details?id=${id}`)
-  }
 
   const handleToggleLikeMovie = (id) => {
     setLikedMovieIds((prevState) => {

@@ -1,5 +1,6 @@
 const Movie = ({props}) => {
   const {id, name, overview, vote_average, poster_path} = props;
+
   return (
     <div className="movie">
       <a href={"/details/"+id}>
