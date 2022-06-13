@@ -6,7 +6,7 @@ const MovieList = ({title, movies}) => {
       <div className="title">
         <h1>{title}</h1>
         <div className="titles-wrapper">
-          {movies.map((movie) =>
+          {movies && movies.map((movie) =>
             <Movie props={movie}/>
           )}
         </div>

@@ -11,7 +11,7 @@ const IndexPage = ({SearchFormProps}) => {
   const [disneyMovies, setDisneyMovies] = useState(null);
   const [applePlusMovies, setApplePlusMovies] = useState(null);
 
-  const setTopMoviesByProviders = async () => {
+  const getTopMoviesByProviders = async () => {
     Promise.all([
       getTopMoviesByProvider("Netflix"), 
       getTopMoviesByProvider("Crave"),
@@ -26,7 +26,7 @@ const IndexPage = ({SearchFormProps}) => {
   }
 
   useEffect(() => {
-    setTopMoviesByProviders();
+    getTopMoviesByProviders();
   }, [])
 
   return (

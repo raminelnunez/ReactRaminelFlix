@@ -4,8 +4,10 @@ import { useState } from "react";
 import IndexPage from "./pages/IndexPage";
 import SearchPage from "./pages/SearchPage";
 import DetailsPage from "./pages/DetailsPage";
+import WatchListPage from "./pages/WatchListPage";
 
 function App() {
+  const [likedMovieIds, setLikedMovieIds] = useState(null);
   const [searchValue, setSearchValue] = useState("");
   const navigate = useNavigate();
 
@@ -16,6 +18,18 @@ function App() {
   const handleDetails = async (id) => {
     navigate(`/details?id=${id}`)
   }
+
+  
+  const handleToggleLikeMovie = (id) => {
+    setLikedMovieIds((prevState) => {
+      if (prevState.findIndex((movieId) => movieId === id) === -1) {
+        return [...prevState, id];
+      }
+
+      return prevState.filter((movieId) => movieId !== id);
+    });
+  };
+
 
   const SearchFormProps = {
     handleSearch: handleSearch,
@@ -43,6 +57,14 @@ function App() {
                 element={
                   <DetailsPage
                     SearchFormProps={SearchFormProps}
+                  />
+                }
+        />
+        <Route path="my-watch-list"
+                element={
+                  <WatchListPage
+                    SearchFormProps={SearchFormProps}
+                    FavouritesIds={likedMovieIds}
                   />
                 }
         />
