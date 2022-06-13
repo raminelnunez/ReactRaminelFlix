@@ -21,9 +21,7 @@ function MovieContextProvider(props) {
   };
   
   const IsMovieLiked = (id) => {
-    if (likedMovieIds !== null) {
-      return likedMovieIds.includes(id);
-    }
+    return likedMovieIds.includes(id);
   }
 
   const MovieProps = {
