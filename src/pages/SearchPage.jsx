@@ -2,10 +2,11 @@ import Header from "../components/Header";
 import MovieList from "../components/MovieList";
 import { useSearchParams } from "react-router-dom";
 import { searchMovies } from "../services/movie-api";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { SearchFormContext } from "../contexts/SearchFormContext";
 
-const SearchPage = ({SearchFormProps}) => {
-  const {searchValue} = SearchFormProps;
+const SearchPage = () => {
+  const {searchValue} = useContext(SearchFormContext);
 
   const [searchResults, setSearchResults] = useState(null);
   const [searchParams, setSearchParams] = useSearchParams();
@@ -38,9 +39,7 @@ const SearchPage = ({SearchFormProps}) => {
 
   return (
     <>
-      <Header 
-        SearchFormProps={SearchFormProps}
-      />
+      <Header/>
       {searchResults && <MovieList title={"Results"} movies={searchResults}/>}
     </>
   );

@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { SearchFormContext } from "../contexts/SearchFormContext";
 
-const SearchForm = ({props}) => {
-  const {handleSearch, setSearchValue, searchValue} = props;
+const SearchForm = () => {
+  const {handleSearch, setSearchValue, searchValue} = useContext(SearchFormContext);
   const handleChange = (event) => {
     setSearchValue(event.target.value);
   }

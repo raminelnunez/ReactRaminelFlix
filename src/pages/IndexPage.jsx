@@ -1,11 +1,9 @@
-import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getTopMoviesByProvider } from "../services/movie-api"
 import Header from "../components/Header";
 import MovieList from "../components/MovieList";
-import { useLocation } from "react-router-dom";
 
-const IndexPage = ({SearchFormProps}) => {
+const IndexPage = () => {
   const [netflixMovies, setNetflixMovies] = useState(null);
   const [craveMovies, setCraveMovies] = useState(null);
   const [disneyMovies, setDisneyMovies] = useState(null);
@@ -31,9 +29,7 @@ const IndexPage = ({SearchFormProps}) => {
 
   return (
     <>
-      <Header 
-        SearchFormProps={SearchFormProps}
-      />
+      <Header/>
       {netflixMovies && <MovieList title={"Netflix"} movies={netflixMovies}/>}
       {craveMovies && <MovieList title={"Crave"} movies={craveMovies}/>}
       {disneyMovies && <MovieList title={"Disney"} movies={disneyMovies}/>}

@@ -3,7 +3,7 @@ import { getMovieById } from "../services/movie-api";
 import Header from "../components/Header";
 import MovieList from "../components/MovieList";
 
-const WatchListPage = ({SearchFormProps, FavouritesIds}) => {
+const WatchListPage = ({FavouritesIds}) => {
   const [likedMovies, setLikedMovies] = useState(null);
 
   const getFavouriteMovies = async () => {
@@ -27,9 +27,7 @@ const WatchListPage = ({SearchFormProps, FavouritesIds}) => {
 
   return (
     <>
-      <Header 
-        SearchFormProps={SearchFormProps}
-      />
+      <Header/>
       {<MovieList title={"My Watch List"} movies={likedMovies}/>}
     </>
   );
