@@ -26,7 +26,6 @@ function MovieContextProvider(props) {
 
   const MovieProps = {
     toggleLikeMovie: toggleLikeMovie,
-    setLikedMovieIds: setLikedMovieIds,
     likedMovieIds: likedMovieIds,
     IsMovieLiked: IsMovieLiked
   }

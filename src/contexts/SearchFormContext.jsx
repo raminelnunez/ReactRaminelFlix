@@ -19,7 +19,6 @@ function SearchFormContextProvider(props) {
   }
 
   useEffect(() => {
-    console.log(searchValue)
     localStorage.setItem("searchValue", JSON.stringify(searchValue))
   }, [searchValue])
 
