@@ -3,6 +3,7 @@ import { SearchFormContext } from "../contexts/SearchFormContext";
 
 const SearchForm = () => {
   const {handleSearch, setSearchValue, searchValue} = useContext(SearchFormContext);
+  
   const handleChange = (event) => {
     setSearchValue(event.target.value);
   }

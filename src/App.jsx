@@ -26,28 +26,41 @@ function App() {
     });
   };
 
-
   return (
 
     <Routes>
 
-      <Route path="/">
-        <SearchFormContextProvider>
-          <IndexPage/>
-        </SearchFormContextProvider>
-      </Route>
+      <Route path="/"
+        element={
+          <SearchFormContextProvider>
+            <IndexPage/>
+          </SearchFormContextProvider>
+        }
+      />
 
-      <Route path={`/search`}>
-        <SearchPage/>
-      </Route>
+      <Route path={`/search`}
+        element={
+          <SearchFormContextProvider>
+            <SearchPage/>
+          </SearchFormContextProvider>
+        }
+      />
 
-      <Route path={`/details/:MovieId`}>
-        <DetailsPage/>
-      </Route>
+      <Route path={`/details/:MovieId`}
+        element={
+          <SearchFormContextProvider>
+            <DetailsPage/>
+          </SearchFormContextProvider>
+        }
+      />
 
-      <Route path="my-watch-list">
-        <WatchListPage FavouritesIds={likedMovieIds}/>
-      </Route>
+      <Route path="my-watch-list"
+        element={
+          <SearchFormContextProvider>
+            <WatchListPage FavouritesIds={likedMovieIds}/>
+          </SearchFormContextProvider>
+        }
+      />
       
     </Routes>
   );
