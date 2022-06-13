@@ -1,18 +1,36 @@
-// import { useState } from "react";
-// import Details from "../components/Details";
-// import { useSearchParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { getMovieById } from "../services/movie-api";
+import { useParams } from "react-router-dom";
+import Header from "../components/Header";
+import Details from "../components/Details";
 
-// const DetailsPage = ({SearchFormProps, movieId}) => {
-  
-//   const [movie, setMovie] = useState();
-//   const [searchParams, setSearchParams] = useSearchParams();
+const DetailsPage = ({SearchFormProps}) => {
+  const [movie, setMovie] = useState();
 
-//   return (
-//     <>
-//       <Header 
-//         SearchFormProps={SearchFormProps}
-//       />
+  const {MovieId} = useParams();
 
-//     </>
-//   );
-// }
+  const handleGetMovieById = async () => {
+    const promise = new Promise((resolve, reject) => {
+      resolve(getMovieById(MovieId));
+    });
+    
+    promise.then((result) => {
+      setMovie(result);
+    });
+  }
+
+  useEffect(() => {
+    handleGetMovieById();
+  }, [MovieId])
+
+  return (
+    <>
+      <Header 
+        SearchFormProps={SearchFormProps}
+      />
+      {movie && <Details movie={movie}/> }
+    </>
+  );
+}
+
+export default DetailsPage;

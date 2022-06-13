@@ -46,4 +46,4 @@ const SearchPage = ({SearchFormProps}) => {
   );
 }
 
-export default SearchPage
+export default SearchPage;

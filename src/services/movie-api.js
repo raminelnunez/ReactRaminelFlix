@@ -1,7 +1,7 @@
 const apiKey = "070671b29879e102b5729476da29b75e";
 const baseURL = "https://api.themoviedb.org/3/";
-const searchURL = `${baseURL}search/movie?api_key=${apiKey}&query=`;
-const movieURL = (id) => { return `${baseURL}movie/${id}?api_key=${apiKey}`;}; 
+const searchURL = `${baseURL}search/tv?api_key=${apiKey}&query=`;
+const movieURL = (id) => { return `${baseURL}tv/${id}?api_key=${apiKey}`;}; 
 
 const TopMoviesByProviderURL = (providerName) => {
   let providerId;
@@ -33,7 +33,6 @@ export const getMovieById = async (id) => {
   const request = await fetch(movieURL(id));
   const response = await request.json();
   const data = await response;
-  console.log(data);
   return data;
 }
 
