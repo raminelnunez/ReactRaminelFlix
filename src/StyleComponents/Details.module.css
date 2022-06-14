@@ -1,0 +1,70 @@
+.showDetailsInner {
+  padding: 50px 50px;
+  position: relative;
+  background-color: #0000005c;
+  width: 600px;
+  top: 80px;
+}
+
+.showDetails {
+  margin-top: 140px;
+  position: relative;
+}
+
+.showDetails .description {
+  font-size: 20px;
+  width: 500px;
+  line-height: 30px;
+  margin: 40px 0;
+}
+
+.showDetails .details {
+  margin: 40px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 20px;
+}
+
+.showDetails h1 {
+  font-size: 50px;
+  width: 600px;
+}
+
+.showDetails img {
+  position: absolute;
+  width: 100%;
+}
+
+.addToWatchlist {
+  border: 2px solid var(--red);
+  background-color: var(--red);
+  color: white;
+  font-weight: 400;
+  padding: 10px 15px;
+  font-size: 20px;
+  transition: background 0.125s ease;
+  border-radius: 4px;
+}
+
+.addToWatchlist:hover {
+  background: none;
+  cursor: pointer;
+}
+
+.removeToWatchlist {
+  border: 2px solid white;
+  background-color: white;
+  color: var(--red);
+  font-weight: 400;
+  padding: 10px 15px;
+  font-size: 20px;
+  transition: background 0.125s ease;
+  border-radius: 4px;
+}
+
+.removeToWatchlist:hover {
+  background: none;
+  color: white;
+  cursor: pointer;
+}

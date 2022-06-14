@@ -9,7 +9,6 @@ import SearchFormContextProvider from "./contexts/SearchFormContext";
 import MovieContextProvider from "./contexts/MovieContext";
 
 function App() {
-
   
   return (
     <Routes>
