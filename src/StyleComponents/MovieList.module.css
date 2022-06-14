@@ -1,0 +1,23 @@
+.titleList {
+  padding: 20px 40px;
+  box-sizing: border-box;
+}
+
+.titleList>.title {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 1em;
+}
+
+.titleList .titlesWrapper {
+  margin: 20px 0;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 250px));
+  grid-gap: 10px 10px;
+}
+
+header+.titleList {
+  margin-top: 140px;
+}

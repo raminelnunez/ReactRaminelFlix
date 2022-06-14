@@ -2,14 +2,17 @@ import { useEffect, useState } from "react";
 import { getMovieById } from "../services/movie-api";
 import Header from "../components/Header";
 import MovieList from "../components/MovieList";
+import { useContext } from "react";
+import { MovieContext } from "../contexts/MovieContext";
 
-const WatchListPage = ({SearchFormProps, FavouritesIds}) => {
+const WatchListPage = () => {
+  const {likedMovieIds} = useContext(MovieContext);
   const [likedMovies, setLikedMovies] = useState(null);
 
   const getFavouriteMovies = async () => {
-    if (FavouritesIds !== null) {
+    if (likedMovieIds !== null) {
       let promises = [];
-      FavouritesIds.map((id) => promises.push(
+      likedMovieIds.map((id) => promises.push(
         new Promise((resolve, reject) => {
           resolve(getMovieById(id));
         })
@@ -23,13 +26,11 @@ const WatchListPage = ({SearchFormProps, FavouritesIds}) => {
 
   useEffect(() => {
     getFavouriteMovies();
-  }, [FavouritesIds])
+  }, [likedMovieIds])
 
   return (
     <>
-      <Header 
-        SearchFormProps={SearchFormProps}
-      />
+      <Header/>
       {<MovieList title={"My Watch List"} movies={likedMovies}/>}
     </>
   );

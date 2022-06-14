@@ -1,0 +1,42 @@
+.header {
+  background: -webkit-gradient(linear,
+      left top,
+      left bottom,
+      color-stop(0, #000),
+      to(transparent));
+  background: linear-gradient(180deg, #000, transparent);
+  display: flex;
+  padding: 40px 40px 0;
+  position: fixed;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 5;
+  top: 0;
+}
+
+.navigation ul {
+  display: flex;
+  height: 37px;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.navigation li {
+  font-weight: 400;
+  padding: 7px 10px;
+  font-size: 14px;
+  -webkit-transition: background 0.125s ease;
+  transition: background 0.125s ease;
+  border-radius: 3px;
+}
+
+.navigation a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.navigation li:hover {
+  background: var(--red);
+  cursor: pointer;
+}
+

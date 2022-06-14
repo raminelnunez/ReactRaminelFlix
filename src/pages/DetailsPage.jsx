@@ -4,9 +4,8 @@ import { useParams } from "react-router-dom";
 import Header from "../components/Header";
 import Details from "../components/Details";
 
-const DetailsPage = ({SearchFormProps}) => {
+const DetailsPage = () => {
   const [movie, setMovie] = useState();
-
   const {MovieId} = useParams();
 
   const handleGetMovieById = async () => {
@@ -25,9 +24,7 @@ const DetailsPage = ({SearchFormProps}) => {
 
   return (
     <>
-      <Header 
-        SearchFormProps={SearchFormProps}
-      />
+      <Header/>
       {movie && <Details movie={movie}/> }
     </>
   );
