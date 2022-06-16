@@ -4,8 +4,7 @@ import { useNavigate } from "react-router-dom";
 export const SearchFormContext = createContext();
 
 function SearchFormContextProvider(props) {
-  const initialState = JSON.parse(localStorage.getItem("searchValue"));
-  const [searchValue, setSearchValue] = useState(initialState || "");
+  const [searchValue, setSearchValue] = useState("");
   const navigate = useNavigate();
 
   const handleSearch = async () => {
@@ -17,10 +16,6 @@ function SearchFormContextProvider(props) {
     setSearchValue: setSearchValue,
     searchValue: searchValue
   }
-
-  useEffect(() => {
-    localStorage.setItem("searchValue", JSON.stringify(searchValue))
-  }, [searchValue])
 
   return (
     <SearchFormContext.Provider value={SearchFormProps}>

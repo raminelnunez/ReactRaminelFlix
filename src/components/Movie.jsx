@@ -1,4 +1,5 @@
 import { useState, useContext, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { MovieContext } from "../contexts/MovieContext";
 import styles from "../StyleComponents/Movie.module.css";
 
@@ -21,7 +22,7 @@ const Movie = ({props}) => {
 
   return (
     <div className={styles.movie}>
-      <a href={"/details/"+id}>
+      <Link to={"/details/"+id}>
         {poster_path? <img src={`https://image.tmdb.org/t/p/w500${poster_path}`}/> :
                       <img src="https://www.brockport.edu/_resources/images/directory_default.png" alt="image not available"/>} 
         <div className={styles.overlay}>
@@ -31,7 +32,7 @@ const Movie = ({props}) => {
             {overview}
           </div>
         </div>
-      </a>
+      </Link>
       <div data-toggled={isLiked} className={styles.listToggle}>
         <div onClick={handleToggleLikeMovie}>
           <i className="fa fa-fw fa-plus"></i>

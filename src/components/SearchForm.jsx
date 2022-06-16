@@ -22,6 +22,3 @@ const SearchForm = () => {
 }
 
 export default SearchForm;
-
-// style={SearchFormStyle.formStyle}
-// style={SearchFormStyle.searchInputStyle}
