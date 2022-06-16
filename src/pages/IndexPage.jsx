@@ -13,16 +13,28 @@ const IndexPage = () => {
     }
   }
 
+  const InitializeProviders = () => {
+    return [
+      new Provider(8, "Netflix"),
+      new Provider(230, "Crave"),
+      new Provider(337, "Disney+"),
+      new Provider(350, "Apple+")
+    ]
+  }
+
   const getMoviesByProviders = async () => {
-    Promise.all([
-      providers.map((provider) => {
-        const promise = new Promise((resolve, reject) => {
-          resolve(getMoviesByProvider(provider.id));
-        });
-      })
-    ]).then((results) => {
-      let UpdatedProviders = providers;
-      for (let i = 0; i < providers.length; i++) {
+    let providersToAdd = InitializeProviders();
+
+    let Promises = [];
+    providersToAdd.map((provider) => 
+      Promises.push(new Promise((resolve, reject) => {
+        resolve(getMoviesByProvider(provider.id));
+      }))
+    );
+
+    Promise.all(Promises).then((results) => {
+      let UpdatedProviders = providersToAdd;
+      for (let i = 0; i < UpdatedProviders.length; i++) {
         UpdatedProviders[i].movies = results[i];
       }
       setProviders(UpdatedProviders);
@@ -30,26 +42,16 @@ const IndexPage = () => {
   }
 
   useEffect(()=> {
-    providersToAdd = [
-      new Provider(8, "Netflix"),
-      new Provider(230, "Crave"),
-      new Provider(337, "Disney+"),
-      new Provider(350, "Apple+")
-    ]
-    setProviders(providersToAdd);
-  }, [])
-
-  useEffect(() => {
     getMoviesByProviders();
-  }, [providers])
+  }, [])
 
   return (
     <>
       <Header/>
       {
-        providers && providers.map((provider) => {
+        providers && providers.map((provider) =>
           <MovieList title={provider.name} movies={provider.movies}/>
-        })
+        )
       }
     </>
   );

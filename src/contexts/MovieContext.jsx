@@ -4,7 +4,7 @@ export const MovieContext = createContext();
 
 function MovieContextProvider(props) {
   const initialState = JSON.parse(localStorage.getItem("likedMovieIds"));
-  const [likedMovieIds, setLikedMovieIds] = useState(initialState || null);
+  const [likedMovieIds, setLikedMovieIds] = useState(initialState || []);
 
   const toggleLikeMovie = (id) => {
     if (likedMovieIds === null) {
