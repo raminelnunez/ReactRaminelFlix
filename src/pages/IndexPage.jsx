@@ -38,7 +38,7 @@ const IndexPage = () => {
         UpdatedProviders[i].movies = results[i];
       }
       setProviders(UpdatedProviders);
-    })
+    });
   }
 
   useEffect(()=> {
