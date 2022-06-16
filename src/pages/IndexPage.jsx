@@ -1,39 +1,56 @@
-import { useState, useEffect } from "react";
-import { getTopMoviesByProvider } from "../services/movie-api"
+import { useState, useEffect, useSyncExternalStore } from "react";
+import { getMoviesByProvider } from "../services/movie-api"
 import Header from "../components/Header";
 import MovieList from "../components/MovieList";
 
 const IndexPage = () => {
-  const [netflixMovies, setNetflixMovies] = useState(null);
-  const [craveMovies, setCraveMovies] = useState(null);
-  const [disneyMovies, setDisneyMovies] = useState(null);
-  const [applePlusMovies, setApplePlusMovies] = useState(null);
+  const [providers, setProviders] = useState(null);
+  class Provider {
+    constructor(id, name) {
+      this.id = id;
+      this.name = name;
+      this.movies = [];
+    }
+  }
 
-  const getTopMoviesByProviders = async () => {
+  const getMoviesByProviders = async () => {
     Promise.all([
-      getTopMoviesByProvider("Netflix"), 
-      getTopMoviesByProvider("Crave"),
-      getTopMoviesByProvider("Disney"),  
-      getTopMoviesByProvider("Apple Plus")
+      providers.map((provider) => {
+        const promise = new Promise((resolve, reject) => {
+          resolve(getMoviesByProvider(provider.id));
+        });
+      })
     ]).then((results) => {
-      setNetflixMovies(results[0]);
-      setCraveMovies(results[1]);
-      setDisneyMovies(results[2]);
-      setApplePlusMovies(results[3]);
+      let UpdatedProviders = providers;
+      for (let i = 0; i < providers.length; i++) {
+        UpdatedProviders[i].movies = results[i];
+      }
+      setProviders(UpdatedProviders);
     })
   }
 
-  useEffect(() => {
-    getTopMoviesByProviders();
+  useEffect(()=> {
+    providersToAdd = [
+      new Provider(8, "Netflix"),
+      new Provider(230, "Crave"),
+      new Provider(337, "Disney+"),
+      new Provider(350, "Apple+")
+    ]
+    setProviders(providersToAdd);
   }, [])
+
+  useEffect(() => {
+    getMoviesByProviders();
+  }, [providers])
 
   return (
     <>
       <Header/>
-      {netflixMovies && <MovieList title={"Netflix"} movies={netflixMovies}/>}
-      {craveMovies && <MovieList title={"Crave"} movies={craveMovies}/>}
-      {disneyMovies && <MovieList title={"Disney"} movies={disneyMovies}/>}
-      {applePlusMovies && <MovieList title={"Apple Plus"} movies={applePlusMovies}/>}
+      {
+        providers && providers.map((provider) => {
+          <MovieList title={provider.name} movies={provider.movies}/>
+        })
+      }
     </>
   );
 

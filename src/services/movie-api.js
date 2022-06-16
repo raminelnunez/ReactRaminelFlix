@@ -3,22 +3,7 @@ const baseURL = "https://api.themoviedb.org/3/";
 const searchURL = `${baseURL}search/tv?api_key=${apiKey}&query=`;
 const movieURL = (id) => { return `${baseURL}tv/${id}?api_key=${apiKey}`;}; 
 
-const TopMoviesByProviderURL = (providerName) => {
-  let providerId;
-  switch(providerName) {
-    case "Netflix" || "netflix":
-      providerId = 8;
-      break;
-    case "Crave" || "crave":
-      providerId = 230;
-      break;
-    case "Disney" || "disney":
-      providerId = 337;
-      break;
-    case "Apple Plus" || "apple plus":
-      providerId = 350;
-      break;
-  }
+const MoviesByProviderURL = (providerId) => {
   return `${baseURL}discover/tv?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&with_watch_providers=${providerId}&watch_region=CA`;
 }
 
@@ -36,8 +21,8 @@ export const getMovieById = async (id) => {
   return data;
 }
 
-export const getTopMoviesByProvider = async (providerName) => {
-  const request = await fetch(TopMoviesByProviderURL(providerName));
+export const getMoviesByProvider = async (providerName) => {
+  const request = await fetch(MoviesByProviderURL(providerName));
   const response = await request.json();
   const data = await response;
   return data.results;
