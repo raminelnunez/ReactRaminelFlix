@@ -8,7 +8,9 @@ function SearchFormContextProvider(props) {
   const navigate = useNavigate();
 
   const handleSearch = async () => {
-    navigate(`/search?query=${searchValue}`)
+    if (searchValue !== "") {
+      navigate(`/search?query=${searchValue}`)
+    }
   }
 
   const SearchFormProps = {
