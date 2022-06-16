@@ -1,16 +1,16 @@
-.titleList {
+.movieList {
   padding: 20px 40px;
   box-sizing: border-box;
 }
 
-.titleList>.title {
+.movieList>.movie {
   font-size: 24px;
   font-weight: 600;
   line-height: 1.4;
   margin-bottom: 1em;
 }
 
-.titleList .titlesWrapper {
+.movieList .moviesWrapper {
   margin: 20px 0;
   box-sizing: border-box;
   display: grid;
@@ -18,6 +18,6 @@
   grid-gap: 10px 10px;
 }
 
-header+.titleList {
+header+.movieList {
   margin-top: 140px;
 }

@@ -3,10 +3,10 @@ import styles from "../StyleComponents/MovieList.module.css";
 
 const MovieList = ({title, movies}) => {
   return (
-    <div className={styles.titleList}>
-      <div className={styles.title}>
+    <div className={styles.movieList}>
+      <div className={styles.movie}>
         <h1>{title}</h1>
-        <div className={styles.titlesWrapper}>
+        <div className={styles.moviesWrapper}>
           {movies && movies.map((movie) =>
             <Movie props={movie}/>
           )}
