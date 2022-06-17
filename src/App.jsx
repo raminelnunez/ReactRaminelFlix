@@ -11,48 +11,35 @@ import MovieContextProvider from "./contexts/MovieContext";
 function App() {
   
   return (
+    <SearchFormContextProvider>
+    <MovieContextProvider>
     <Routes>
       <Route path="/"
         element={
-          <SearchFormContextProvider>
-            <MovieContextProvider>
-              <IndexPage/>
-            </MovieContextProvider>
-          </SearchFormContextProvider>
+          <IndexPage/>
         }
       />
 
       <Route path={`/search`}
         element={
-          <SearchFormContextProvider>
-            <MovieContextProvider>
-              <SearchPage/>
-            </MovieContextProvider>
-          </SearchFormContextProvider>
+          <SearchPage/>
         }
       />
 
       <Route path={`/details/:MovieId`}
         element={
-          <SearchFormContextProvider>
-            <MovieContextProvider>
-              <DetailsPage/>
-            </MovieContextProvider>
-          </SearchFormContextProvider>
+          <DetailsPage/>
         }
       />
 
       <Route path="my-watch-list"
         element={
-          <SearchFormContextProvider>
-            <MovieContextProvider>
-              <WatchListPage/>
-            </MovieContextProvider>
-          </SearchFormContextProvider>
+          <WatchListPage/>
         }
       />
-      
     </Routes>
+    </MovieContextProvider>
+    </SearchFormContextProvider>
   );
 }
 
