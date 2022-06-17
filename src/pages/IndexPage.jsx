@@ -5,20 +5,20 @@ import MovieList from "../components/MovieList";
 
 const IndexPage = () => {
   const [providers, setProviders] = useState(null);
-  class Provider {
-    constructor(id, name) {
-      this.id = id;
-      this.name = name;
-      this.movies = [];
-    }
+  const Provider = (id, name) => {
+    return {
+      id: id,
+      name: name,
+      movies: []
+    };
   }
 
   const InitializeProviders = () => {
     return [
-      new Provider(8, "Netflix"),
-      new Provider(230, "Crave"),
-      new Provider(337, "Disney+"),
-      new Provider(350, "Apple+")
+      Provider(8, "Netflix"),
+      Provider(230, "Crave"),
+      Provider(337, "Disney+"),
+      Provider(350, "Apple+")
     ]
   }
 
