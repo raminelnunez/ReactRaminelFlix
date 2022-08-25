@@ -1,6 +1,5 @@
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { BrowserRouter as Routes, Route } from "react-router-dom";
 import IndexPage from "./pages/IndexPage";
 import SearchPage from "./pages/SearchPage";
 import DetailsPage from "./pages/DetailsPage";

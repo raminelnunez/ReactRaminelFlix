@@ -1,5 +1,5 @@
 import { useState, useContext, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Link } from "react-router-dom";
 import { MovieContext } from "../contexts/MovieContext";
 import styles from "../StyleComponents/Movie.module.css";
 
@@ -23,8 +23,8 @@ const Movie = ({props}) => {
   return (
     <div className={styles.movie}>
       <Link to={"/details/"+id}>
-        {poster_path? <img src={`https://image.tmdb.org/t/p/w500${poster_path}`}/> :
-                      <img src="https://www.brockport.edu/_resources/images/directory_default.png" alt="image not available"/>} 
+        {poster_path? <img src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt=""/> :
+                      <img src="https://www.brockport.edu/_resources/images/directory_default.png" alt=""/>} 
         <div className={styles.overlay}>
           <div className={styles.title}>{name}</div>
           <div className={styles.rating}>{vote_average}/10</div>

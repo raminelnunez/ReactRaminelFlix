@@ -1,4 +1,4 @@
-import { useState, createContext, useEffect} from "react";
+import { useState, createContext} from "react";
 import { useNavigate } from "react-router-dom";
 
 export const SearchFormContext = createContext();

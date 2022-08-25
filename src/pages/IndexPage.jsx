@@ -1,4 +1,4 @@
-import { useState, useEffect, useSyncExternalStore } from "react";
+import { useState, useEffect } from "react";
 import { getMoviesByProvider } from "../services/movie-api"
 import Header from "../components/Header";
 import MovieList from "../components/MovieList";

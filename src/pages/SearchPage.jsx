@@ -44,7 +44,7 @@ const SearchPage = () => {
       doesHavePrevPage = true;
     }
     searchMovies(query, page? +page+1 : +2).then((movies) => {
-      if (movies.length != 0) {
+      if (movies.length !== 0) {
         doesHaveNextPage = true;
       }
       setHasPrevPage(doesHavePrevPage);
