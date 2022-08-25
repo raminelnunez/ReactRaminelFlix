@@ -1,5 +1,5 @@
 import { useState, useContext, useEffect } from "react";
-import { BrowserRouter as Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { MovieContext } from "../contexts/MovieContext";
 import styles from "../StyleComponents/Movie.module.css";
 

@@ -1,4 +1,4 @@
-import { BrowserRouter as Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import SearchForm from "./SearchForm";
 import styles from "../StyleComponents/Header.module.css";
 
