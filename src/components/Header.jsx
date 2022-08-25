@@ -5,7 +5,7 @@ import styles from "../StyleComponents/Header.module.css";
 const Header = () => {
   return (
     <header className={styles.header}>
-      <Link to="/"><img src="https://fontmeme.com/permalink/190707/fd4735271a0d997cbe19a04408c896fc.png" alt="netflix-font" border="0" /></Link>
+      <Link to="/"><img src="https://fontmeme.com/permalink/220825/422dbd16fe811741d23c0a86b2c28512.png" alt="netflix-font" border="0" /></Link>
       <div id="navigation" className={styles.navigation}>
         <nav>
           <ul>
