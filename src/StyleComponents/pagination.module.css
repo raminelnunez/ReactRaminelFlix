@@ -1,0 +1,23 @@
+.paginationWrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 2.5rem;
+  max-width: 80%;
+}
+
+.buttons {
+  text-decoration: none;
+  padding: 0.6rem;
+  color:rgb(15, 15, 15);
+  background-color: rgb(215, 0, 0);
+  border-radius: 5%;
+  font-weight: 700;
+}
+
+.buttons:hover {
+  color: whitesmoke;
+  padding: 0.5rem;
+  background-color: black;
+  transition-delay: 100ms;
+  transition-duration: 400ms;
+}

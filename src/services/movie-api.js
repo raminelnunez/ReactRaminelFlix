@@ -7,8 +7,8 @@ const MoviesByProviderURL = (providerId) => {
   return `${baseURL}discover/tv?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&with_watch_providers=${providerId}&watch_region=CA`;
 }
 
-export const searchMovies = async (query) => {
-  const request = await fetch(searchURL+query);
+export const searchMovies = async (query, page) => {
+  const request = await fetch(searchURL+query+`&page=${page}`);
   const response = await request.json();
   const data = await response;
   return data.results;
